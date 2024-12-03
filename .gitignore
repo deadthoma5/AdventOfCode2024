@@ -261,3 +261,7 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+
+# Advent of Code input
+input.txt
+input_test.txt
