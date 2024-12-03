@@ -1,6 +1,4 @@
-﻿using System.Runtime.InteropServices.Marshalling;
-
-namespace AdventOfCode2024
+﻿namespace AdventOfCode2024
 {
     class Program02
     {
