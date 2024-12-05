@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Numerics;
-using System.Runtime.Intrinsics;
+﻿using System.Numerics;
 
 namespace AdventOfCode2024 {
     class Program04 {
@@ -76,7 +74,7 @@ namespace AdventOfCode2024 {
                     }
                 }
             }
-            
+
             return d1Match && d2Match;
         }
         static void Main(string[] args) {
