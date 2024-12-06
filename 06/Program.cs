@@ -6,22 +6,19 @@ namespace AdventOfCode2024 {
             return new Point(input.Y, -input.X);
         }
         public static (int, bool) Simulation(Dictionary<Point, char> grid, Point guard, Point direction) {
-            bool isOOB = false;
             bool isLoop = false;
-            Dictionary<Point, List<Point>> visited = new Dictionary<Point, List<Point>>();
-            visited.Add(guard, new List<Point>(){direction});
+            Dictionary<Point, Point> visited = new Dictionary<Point, Point>() { {guard, direction} };
 
-            while (!isOOB && !isLoop) {
+            while (!isLoop) {
                 Point testPos = guard + (Size)direction;
-                char symbol;
 
-                if (grid.TryGetValue(testPos, out symbol)) {
+                if (grid.TryGetValue(testPos, out char symbol)) {
                     switch (symbol) {
                         case '.':
                             if (!visited.Keys.Contains(testPos)) {
-                                visited.Add(testPos, new List<Point>(){direction});
+                                visited.Add(testPos, direction);
                             } else {
-                                if (visited[testPos].Contains(direction)) {
+                                if (visited[testPos] == direction) {
                                     isLoop = true;
                                     break;
                                 }
@@ -33,7 +30,7 @@ namespace AdventOfCode2024 {
                             break;
                     }
                 } else {
-                    isOOB = true;
+                    break;
                 }
             }
 
