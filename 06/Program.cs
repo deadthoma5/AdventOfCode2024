@@ -2,7 +2,7 @@
 
 namespace AdventOfCode2024 {
     class Program06 {
-        public static Point TurnRight(Point input, double angle) {
+        public static Point TurnRight(Point input) {
             return new Point(input.Y, -input.X);
         }
         public static (int, bool) Simulation(Dictionary<Point, char> grid, Point guard, Point direction) {
@@ -29,7 +29,7 @@ namespace AdventOfCode2024 {
                             guard = testPos;
                             break;
                         case '#':
-                            direction = TurnRight(direction, -Math.PI/2);
+                            direction = TurnRight(direction);
                             break;
                     }
                 } else {
